@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 let numOfApiCalls = 0;
 let intialMax =0;
 
-app.get('./api/posts', (req,res) => {
+app.get('/api/posts', (req,res) => {
 
     if(numOfApiCalls >= 5) {
         res.status(429).send({message: "Exceed Number of API Calls"});
