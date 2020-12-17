@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require("body-parser");
 const port = 3000
-const posts = require("./intialData");
+const posts = require('./intialData');
 app.use(express.urlencoded());
 
 // Parse JSON bodies (as sent by API clients)
@@ -15,7 +15,7 @@ app.use(bodyParser.json())
 // your code goes here
 
 let numOfApiCalls = 0;
-let intialMax =0;
+let intialMax = null;
 
 app.get('/api/posts', (req,res) => {
 
@@ -24,12 +24,12 @@ app.get('/api/posts', (req,res) => {
         return;
     }
 
-    const parsedMax = Number(req.query.max || 10)
+    const parsedMax = Number(req.query.max || 10);
     const max = parsedMax > 20 ? 10: parsedMax;
     let finalMax = max;
 
     if(intialMax !== null) {
-        finalMax = Math.min(intialMax,finalMax);
+        finalMax = Math.min(finalMax,intialMax);
     }
 
     const topMax = posts.filter((value,idx) => idx < finalMax);
