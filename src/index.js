@@ -25,7 +25,7 @@ app.get('./api/posts', (req,res) => {
     }
 
     const parsedMax = Number(req.query.max || 10)
-    const max = parsedMax > 20 ? 10 : parsedMax;
+    const max = parsedMax > 20 ? 10: parsedMax;
     let finalMax = max;
 
     if(intialMax !== null) {
