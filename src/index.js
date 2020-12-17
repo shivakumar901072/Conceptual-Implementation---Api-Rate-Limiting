@@ -28,14 +28,14 @@ app.get('./api/posts', (req,res) => {
     const max = parsedMax > 20 ? 10 : parsedMax;
     let finalMax = max;
 
-    if(intialMax !== Null) {
+    if(intialMax !== null) {
         finalMax = Math.min(intialMax,finalMax);
     }
 
     const topMax = posts.filter((value,idx) => idx < finalMax);
     res.send(topMax);
 
-    if(intialMax === Null) {
+    if(intialMax === null) {
         intialMax = max;
         numOfApiCalls++;
         setTimeout(() => {
