@@ -2,7 +2,8 @@ const express = require('express')
 const app = express()
 const bodyParser = require("body-parser");
 const port = 3000
-const posts = require('./intialData');
+const posts = require('./initialData');
+
 app.use(express.urlencoded());
 
 // Parse JSON bodies (as sent by API clients)
